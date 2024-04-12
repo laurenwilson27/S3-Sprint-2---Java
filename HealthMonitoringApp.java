@@ -33,9 +33,9 @@ public class HealthMonitoringApp {
         // Get due reminders for a specific user
         //test doctor portal (call testDoctorPortal() here)
 
-
         List<User> userList = new ArrayList<>();
 
+        // Test register a new user
         User user1 = new User(5,"Ainee", "Malik","qmalik@gmail.com", "guggu", false);
         userList.add(user1);
 

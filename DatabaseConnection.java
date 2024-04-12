@@ -14,7 +14,6 @@ public class DatabaseConnection {
         Connection connection = null;
         try{
             Class.forName("org.postgresql.Driver");     // For Postgres
-//            Class.forName("com.mysql.jdbc.Driver");  // For MySQL
             connection = DriverManager.getConnection(url, user, password);
         } catch (ClassNotFoundException | SQLException  e) {
             e.printStackTrace();
