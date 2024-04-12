@@ -23,14 +23,13 @@ public class UserDao {
             statement.setBoolean(5, user.isDoctor());
 
             // Execute the prepared statement
-            statement.execute();
-
-            ResultSet returned = statement.getResultSet();
+            ResultSet response = statement.executeQuery();
 
             // If data was returned...
-            if (returned.next()) {
+            if (response.next()) {
                 // The database determines what the id of the new user is, update the user object with this id
-                int newId = returned.getInt(1);
+                int newId = response.getInt(1);
+
                 user.setId(newId);
     
                 return true;
