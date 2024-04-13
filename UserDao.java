@@ -75,8 +75,8 @@ public class UserDao {
             // If the response was > 0 rows...
             if (response.next()) {
                 // Create and return the new User based on the first (and only) row
-                return new User(response.getInt(1), response.getString(2), response.getString(3),
-                                response.getString(4), response.getString(5), response.getBoolean(6));
+                return new User(response.getInt("id"), response.getString("first_name"), response.getString("last_name"),
+                                response.getString("email"), response.getString("password"), response.getBoolean("is_doctor"));
             } else return null;
         } catch (Exception e) { System.err.println(e); return null; }
     }
