@@ -1,6 +1,5 @@
 import java.util.List;
-
-import javax.xml.crypto.Data;
+// import javax.xml.crypto.Data;
 
 import java.util.ArrayList;
 import java.sql.*;
@@ -15,7 +14,7 @@ public class HealthDataDao {
         "VALUES (?, ?, ?, ?, ?, ?) RETURNING id;";
 
       // Prepare the statement
-      PreparedStatement statement = psql.prepareStatement(null);
+      PreparedStatement statement = psql.prepareStatement(query);
 
       statement.setInt(1, healthData.getUserId());
       statement.setDouble(2, healthData.getWeight());
