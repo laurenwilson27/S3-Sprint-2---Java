@@ -31,6 +31,8 @@ public class UserDao {
                 int newId = response.getInt(1);
 
                 user.setId(newId);
+                // Also, the User object should contain the hashed password instead of the plaintext one
+                user.setPassword(hashedPassword);
     
                 return true;
             } else return false;
