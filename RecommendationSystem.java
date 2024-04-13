@@ -19,7 +19,8 @@ public class RecommendationSystem {
     private static final double A1C_PREDIABETES = 5.7;
     private static final double A1C_DIABETES = 6.5;
 
-    public List<String> generateRecommendations(HealthData healthData) {
+    // This method is static, so the RecommendationSystem doesn't need to be instantiated
+    public static List<String> generateRecommendations(HealthData healthData) {
         List<String> recommendations = new ArrayList<String>();
 
         // Analyze heart rate
