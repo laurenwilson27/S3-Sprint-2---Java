@@ -1,5 +1,3 @@
-
-
 // import com.DataBaseConnection;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -21,8 +19,9 @@ public class HealthMonitoringApp {
      *  7. Get due reminders for a specific user
      *  8. test doctor portal
      */
+
     public static void main(String[] args) {
-       DatabaseConnection databaseConnection = new DatabaseConnection();
+        DatabaseConnection databaseConnection = new DatabaseConnection();
         UserDaoExample userDao = new UserDaoExample();
         // test register a new user
         // test Login user (call testLoginUser() here)
@@ -44,7 +43,6 @@ public class HealthMonitoringApp {
         }
     }
 
-
     public static boolean loginUser(String email, String password) {
         //implement method to login user.
         User user = userDao.getUserByEmail(email);
@@ -56,7 +54,6 @@ public class HealthMonitoringApp {
         return false;
 
     }
-
 
     /**
      * To test the Doctor Portal in your Health Monitoring System, provide a simple test code method that you can add
@@ -77,7 +74,6 @@ public class HealthMonitoringApp {
         // Add code to Fetch health data for the patient
 
     }
-
 
     /**
      * To test the login user functionality in your Health Monitoring System, you can
