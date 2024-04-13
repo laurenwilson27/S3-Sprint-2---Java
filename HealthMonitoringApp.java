@@ -7,12 +7,12 @@ import java.util.List;
 
 public class HealthMonitoringApp {
 
-    private static UserDaoExample userDao = new UserDaoExample();
+    private static UserDao userDao = new UserDao();
     /**
      * Test the following functionalities within the Main Application
      *  1. Register a new user
      *  2. Log in the user
-     *  3. Add health data
+     *  3. Add health data8 
      *  4. Generate recommendations
      *  5. Add a medicine reminder
      *  6. Get reminders for a specific user
@@ -21,8 +21,8 @@ public class HealthMonitoringApp {
      */
 
     public static void main(String[] args) {
-        DatabaseConnection databaseConnection = new DatabaseConnection();
-        UserDaoExample userDao = new UserDaoExample();
+        DatabaseConnection connection = new DatabaseConnection();
+        UserDao userDao = new UserDao();
         // test register a new user
         // test Login user (call testLoginUser() here)
         // Add health data
@@ -35,12 +35,20 @@ public class HealthMonitoringApp {
         List<User> userList = new ArrayList<>();
 
         // Test register a new user
-        User user1 = new User(5,"Ainee", "Malik","qmalik@gmail.com", "guggu", false);
+        User user1 = new User(0,"Ainee", "Malik","qmalik@gmail.com", "guggu", false);
         userList.add(user1);
 
         for (User users : userList) {
             userDao.createUser(users);
         }
+
+        // test Login user (call testLoginUser() here)
+        // Add health data
+        // Generate recommendations
+        // Add a medicine reminder
+        // Get reminders for a specific user
+        // Get due reminders for a specific user
+        //test doctor portal (call testDoctorPortal() here)
     }
 
     public static boolean loginUser(String email, String password) {
