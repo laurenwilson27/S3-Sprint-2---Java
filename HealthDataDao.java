@@ -10,8 +10,8 @@ public class HealthDataDao {
       Connection psql = DatabaseConnection.getCon();
 
       String query = "INSERT INTO health_data" +
-        "(user_id, weight, height, steps, heart_rate, date) " +
-        "VALUES (?, ?, ?, ?, ?, ?) RETURNING id;";
+        "(user_id, weight, height, steps, heart_rate, date, a1c) " +
+        "VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id;";
 
       // Prepare the statement
       PreparedStatement statement = psql.prepareStatement(query);
@@ -22,6 +22,7 @@ public class HealthDataDao {
       statement.setInt(4, healthData.getSteps());
       statement.setInt(5, healthData.getHeartRate());
       statement.setString(6, healthData.getDate());
+      statement.setDouble(7, healthData.getA1C());
 
       // Execute the statement and act on the result
       ResultSet response = statement.executeQuery();
@@ -41,7 +42,7 @@ public class HealthDataDao {
     try {
       Connection psql = DatabaseConnection.getCon();
 
-      String query = "SELECT id, user_id, weight, height, steps, heart_rate, date FROM health_data WHERE id = ?";
+      String query = "SELECT id, user_id, weight, height, steps, heart_rate, date, a1c FROM health_data WHERE id = ?";
 
       // Prepare the statement
       PreparedStatement statement = psql.prepareStatement(query);
@@ -54,7 +55,8 @@ public class HealthDataDao {
       if (response.next()) {
         // The response should contain all columns needed to create and return a new HealthData
         return new HealthData(response.getInt("id"), response.getInt("user_id"), response.getDouble("weight"), 
-        response.getDouble("height"), response.getInt("steps"), response.getInt("heart_rate"), response.getString("date"));
+        response.getDouble("height"), response.getInt("steps"), response.getInt("heart_rate"), response.getString("date"),
+        response.getDouble("a1c"));
       } else return null;
 
     } catch (Exception e) {System.err.println(e); return null;}
@@ -64,7 +66,7 @@ public class HealthDataDao {
     try {
       Connection psql = DatabaseConnection.getCon();
 
-      String query = "SELECT id, user_id, weight, height, steps, heart_rate, date FROM health_data WHERE user_id = ?";
+      String query = "SELECT id, user_id, weight, height, steps, heart_rate, date, a1c FROM health_data WHERE user_id = ?";
 
       // Prepare statement
       PreparedStatement statement = psql.prepareStatement(query);
@@ -80,7 +82,8 @@ public class HealthDataDao {
       // Loop through the Postgres response to create a List of new HealthData instances
       while (response.next()) {
         resultList.add(new HealthData(response.getInt("id"), response.getInt("user_id"), response.getDouble("weight"), 
-        response.getDouble("height"), response.getInt("steps"), response.getInt("heart_rate"), response.getString("date")));
+        response.getDouble("height"), response.getInt("steps"), response.getInt("heart_rate"), response.getString("date"),
+        response.getDouble("a1c")));
       }
 
       // Return the completed list
@@ -104,6 +107,7 @@ public class HealthDataDao {
       statement.setInt(5, healthData.getHeartRate());
       statement.setString(6, healthData.getDate());
       statement.setInt(7, healthData.getId());
+      statement.setDouble(8, healthData.getA1C());
 
       // Execute the statement
       int result = statement.executeUpdate();
