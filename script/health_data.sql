@@ -6,5 +6,7 @@ CREATE TABLE health_data (
     steps INT NOT NULL,
     heart_rate INT NOT NULL,
     date DATE NOT NULL,
+    -- I've added a Hemoglobin A1C column. This is expressed as a percentage, and we'll use one decimal point.
+    a1c DECIMAL(2,1) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)
 )
