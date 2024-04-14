@@ -22,7 +22,7 @@ public class DoctorPortalDao {
         try {
             Connection psql = DatabaseConnection.getCon();
 
-            String query = "SELECT id, first_name, last_name, email, password, is_doctor FROM users WHERE id = ? AND is_doctor = True";
+            String query = "SELECT id, first_name, last_name, email, password, is_doctor, specialization, medical_license_number FROM users WHERE id = ? AND is_doctor = True";
 
             // Prepare statement
             PreparedStatement statement = psql.prepareStatement(query);

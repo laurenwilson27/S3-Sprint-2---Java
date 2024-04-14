@@ -136,9 +136,7 @@ public class HealthDataDao {
 
       // 'result' will be equal to the number of rows deleted by the query.
       // A successful deletion is one which deleted a single row
-      if (result == 1) {
-        return true;
-      } else return false;
+      return (result == 1);
     } catch (Exception e) {System.err.println(e); return false;}
   }
 }

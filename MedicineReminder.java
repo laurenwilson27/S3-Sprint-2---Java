@@ -20,6 +20,16 @@ public class MedicineReminder {
         this.endDate = endDate;
     }
 
+    public MedicineReminder(int userId, String medicineName, String dosage, String schedule, String startDate, String endDate) {
+        this.id = -1;
+        this.userId = userId;
+        this.medicineName = medicineName;
+        this.dosage = dosage;
+        this.schedule = schedule;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
+
     // Getters and setters
     public int getId() {return id;}
     public void setId(int id) {this.id = id;}

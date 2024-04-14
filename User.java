@@ -15,6 +15,15 @@ public class User {
         this.isDoctor = isDoctor;
     }
 
+    public User(String firstName, String lastName, String email, String password, boolean isDoctor) {
+        this.id = -1;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.isDoctor = isDoctor;
+    }
+
     public int getId() {
         return id;
     }

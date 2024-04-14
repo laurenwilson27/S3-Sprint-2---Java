@@ -20,6 +20,18 @@ public class HealthData {
         this.a1c = a1c;
     }
 
+    // Constructor for data that has not yet been added to the database
+    public HealthData(int userId, double weight, double height, int steps, int heartRate, String date, double a1c) {
+        this.id = -1;
+        this.userId = id;
+        this.weight = weight;
+        this.height = height;
+        this.steps = steps;
+        this.heartRate = heartRate;
+        this.date = date;
+        this.a1c = a1c;
+    }
+
     public int getId() {return id;}
     public int getUserId() {return userId;}
     public double getWeight() {return weight;}
