@@ -4,7 +4,6 @@
 //import java.util.ArrayList;
 import java.time.Duration;
 import java.util.List;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -99,7 +98,7 @@ public class HealthMonitoringApp {
         // Use the method to get the test user's DUE reminders from the DB
         // (This will have the same result as the previous test)
         List<MedicineReminder> dueReminders = reminders.getDueReminders(testUser.getId());
-        for (MedicineReminder reminder : myReminders)
+        for (MedicineReminder reminder : dueReminders)
             System.out.println(testUser.getFirstName() + " " + testUser.getLastName() + " should be taking " + reminder.getDosage() +
                             " of " + reminder.getMedicineName());
 

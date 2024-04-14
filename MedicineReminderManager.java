@@ -1,5 +1,7 @@
+// import java.time.LocalDateTime;
+// Note that the Postgres 'date' type does not include 'time'
+// Because of this, I am using the LocalDate class to more easily convert dates into java.sql.Date
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
