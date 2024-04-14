@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -16,7 +17,6 @@ import java.sql.*;
 
 public class MedicineReminderManager {
     private List<MedicineReminder> reminders;
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
     public MedicineReminderManager() {
         this.reminders = new ArrayList<>();
@@ -153,7 +153,8 @@ public class MedicineReminderManager {
     // My code will assume that a 'due' reminder is one which is past its start date, but preceding its end date.
     public List<MedicineReminder> getDueReminders(int userId) {
         List<MedicineReminder> dueReminders = new ArrayList<>();
-        LocalDateTime now = LocalDateTime.now();
+        LocalDate today = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         // Write your logic here
         // Start by getting the list of all reminders for a user using the getRemindersForUser function
@@ -162,13 +163,13 @@ public class MedicineReminderManager {
         // Loop through the list of all reminders
         for (MedicineReminder reminder : allReminders) {
             // The start and end dates for a reminder are stored as strings in the MedicineReminder class
-            // Parse them to LocalDateTimes using the provided formatter
-            LocalDateTime startDate = LocalDateTime.parse(reminder.getStartDate(), formatter);
-            LocalDateTime endDate = LocalDateTime.parse(reminder.getEndDate(), formatter);
+            // Parse them to LocalDates using the provided formatter
+            LocalDate startDate = LocalDate.parse(reminder.getStartDate(), formatter);
+            LocalDate endDate = LocalDate.parse(reminder.getEndDate(), formatter);
 
-            // Compare the start and end date of this minder to the 'now' LocalDateTime
-            if (!startDate.isBefore(now) && !endDate.isAfter(now)) {
-                // If the current datetime falls between the start and end dates, add this remimnder to the due reminders
+            // Compare the start and end date of this minder to the 'now' LocalDate
+            if (!startDate.isBefore(today) && !endDate.isAfter(today)) {
+                // If the current datetime falls between the start and end dates, add this reminder to the due reminders
                 dueReminders.add(reminder);
             }
         }

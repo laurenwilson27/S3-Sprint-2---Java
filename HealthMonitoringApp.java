@@ -35,7 +35,7 @@ public class HealthMonitoringApp {
 
         // Test register a new user
         // Create a test user
-        User testUser = new User("Lauren", "Wilson","lauren.wilson@example.com", "password123", false);
+        User testUser = new User("Lauren", "Wilson","lauren.wilson4@example.com", "password123", false);
 
         // Register this user in the database
         if (userDao.createUser(testUser))
@@ -130,6 +130,7 @@ public class HealthMonitoringApp {
       */
     public static void testDoctorPortal() {
         DoctorPortalDao doctorPortal = new DoctorPortalDao();
+        HealthDataDao healthDao = new HealthDataDao();
 
         // Replace the doctorId with a valid ID from your database
         int doctorId = 3;
@@ -147,7 +148,8 @@ public class HealthMonitoringApp {
 
         // Add code to Fetch health data for the patient
         for (User patient : patients) {
-
+            for (HealthData data : healthDao.getHealthDataByUserId(4))
+                System.out.println(patient.getFirstName() + " " + patient.getLastName() + " had a heart rate of " + data.getHeartRate() + " on " + data.getDate());
         }
     }
 
@@ -162,11 +164,11 @@ public class HealthMonitoringApp {
 
         boolean loginSuccess = userDao.verifyPassword(userEmail, userPassword);
 
-        System.out.println("Logging in with email " + userEmail + "and password " + userPassword);
+        System.out.println("Logging in with email " + userEmail + " and password " + userPassword);
 
         if (loginSuccess) {
             // Print to console, "Login Successful"
-            System.out.print("Login Successful");
+            System.out.println("Login Successful");
         } else {
             // Print to console, "Incorrect email or password. Please try again.");
             // Show an error message and prompt the user to re-enter their credentials
