@@ -1,4 +1,3 @@
-import javax.xml.transform.Result;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -40,6 +39,13 @@ public class MedicineReminderManager {
                     "values (?, ?, ?, ?, ?, ?) returning id";
             PreparedStatement statement = psql.prepareStatement(query);
 
+            statement.setInt(1, reminder.getUserId());
+            statement.setString(2, reminder.getMedicineName());
+            statement.setString(3, reminder.getDosage());
+            statement.setString(4, reminder.getSchedule());
+            statement.setDate(5, Date.valueOf(reminder.getStartDate()));
+            statement.setDate(6, Date.valueOf(reminder.getEndDate()));
+
             // Execute statement and act on result
             ResultSet result = statement.executeQuery();
 
@@ -80,8 +86,8 @@ public class MedicineReminderManager {
             statement.setString(2, reminder.getMedicineName());
             statement.setString(3, reminder.getDosage());
             statement.setString(4, reminder.getSchedule());
-            statement.setString(5, reminder.getStartDate());
-            statement.setString(6, reminder.getEndDate());
+            statement.setDate(5, Date.valueOf(reminder.getStartDate()));
+            statement.setDate(6, Date.valueOf(reminder.getEndDate()));
 
             // Execute statement. Successful if result = 1
             int result = statement.executeUpdate();

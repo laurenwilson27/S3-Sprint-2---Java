@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="lib1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/lib/jBCrypt-0.4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/lib/postgresql-42.6.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

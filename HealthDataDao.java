@@ -21,7 +21,7 @@ public class HealthDataDao {
       statement.setDouble(3, healthData.getWeight());
       statement.setInt(4, healthData.getSteps());
       statement.setInt(5, healthData.getHeartRate());
-      statement.setString(6, healthData.getDate());
+      statement.setDate(6, Date.valueOf(healthData.getDate()));
       statement.setDouble(7, healthData.getA1C());
 
       // Execute the statement and act on the result
@@ -105,9 +105,9 @@ public class HealthDataDao {
       statement.setDouble(3, healthData.getHeight());
       statement.setInt(4, healthData.getSteps());
       statement.setInt(5, healthData.getHeartRate());
-      statement.setString(6, healthData.getDate());
-      statement.setInt(8, healthData.getId());
+      statement.setDate(6, Date.valueOf(healthData.getDate()));
       statement.setDouble(7, healthData.getA1C());
+      statement.setInt(8, healthData.getId());
 
       // Execute the statement
       int result = statement.executeUpdate();
@@ -117,7 +117,7 @@ public class HealthDataDao {
       if (result == 1) {
         return true;
       } else return false;
-    } catch (Exception e) {System.err.println(e); return false;}
+    } catch (Exception e) {/*System.err.println(e);*/ return false;}
   }
 
   public boolean deleteHealthData(int id) { /* delete health data from the database */ 

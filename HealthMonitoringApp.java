@@ -31,7 +31,7 @@ public class HealthMonitoringApp {
         MedicineReminderManager reminders = new MedicineReminderManager();
 
         Scanner input = new Scanner(System.in);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         // Test register a new user
         // Create a test user
@@ -137,11 +137,18 @@ public class HealthMonitoringApp {
         // Add code to Fetch the doctor by ID
         Doctor useDoctor = doctorPortal.getDoctorById(doctorId);
 
-        // Add code to Fetch patients associated with the doctor
+        System.out.println("Using Doctor" + useDoctor.getFirstName() + " " + useDoctor.getLastName() + ", who specializes in " + useDoctor.getSpecialization());
 
+        // Make user 4 a patient of this doctor
+        doctorPortal.createDoctorPatientRelationship(doctorId, 4);
+
+        // Fetch patients of this doctor
+        List<User> patients = doctorPortal.getPatientsByDoctorId(doctorId);
 
         // Add code to Fetch health data for the patient
+        for (User patient : patients) {
 
+        }
     }
 
     /**

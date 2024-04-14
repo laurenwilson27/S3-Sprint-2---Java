@@ -11,7 +11,7 @@ public class HealthData {
     // Constructor, getters, and setters
     public HealthData(int id, int userId, double weight, double height, int steps, int heartRate, String date, double a1c) {
         this.id = id;
-        this.userId = id;
+        this.userId = userId;
         this.weight = weight;
         this.height = height;
         this.steps = steps;
@@ -23,7 +23,7 @@ public class HealthData {
     // Constructor for data that has not yet been added to the database
     public HealthData(int userId, double weight, double height, int steps, int heartRate, String date, double a1c) {
         this.id = -1;
-        this.userId = id;
+        this.userId = userId;
         this.weight = weight;
         this.height = height;
         this.steps = steps;
