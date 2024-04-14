@@ -95,7 +95,7 @@ public class HealthDataDao {
     try {
       Connection psql = DatabaseConnection.getCon();
 
-      String query = "UPDATE health_data SET user_id = ?, weight = ?, height = ?, steps = ?, heart_rate = ?, date = ? WHERE id = ?";
+      String query = "UPDATE health_data SET user_id = ?, weight = ?, height = ?, steps = ?, heart_rate = ?, date = ?, a1c = ? WHERE id = ?";
 
       // Prepare statement
       PreparedStatement statement = psql.prepareStatement(query);
@@ -106,8 +106,8 @@ public class HealthDataDao {
       statement.setInt(4, healthData.getSteps());
       statement.setInt(5, healthData.getHeartRate());
       statement.setString(6, healthData.getDate());
-      statement.setInt(7, healthData.getId());
-      statement.setDouble(8, healthData.getA1C());
+      statement.setInt(8, healthData.getId());
+      statement.setDouble(7, healthData.getA1C());
 
       // Execute the statement
       int result = statement.executeUpdate();
