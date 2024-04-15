@@ -28,7 +28,7 @@ public class HealthMonitoringApp {
 
         // Test register a new user
         // Create a test user
-        User testUser = new User("Lauren", "Wilson","laurendemo@example.com", "password123", false);
+        User testUser = new User("Lauren", "Wilson","lauren-test@example.com", "password123", false);
 
         // Register this user in the database
         if (userDao.createUser(testUser))
