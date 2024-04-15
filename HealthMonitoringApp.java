@@ -9,14 +9,15 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import org.mindrot.jbcrypt.BCrypt;
 
-
+/**
+ * Class which contains the main() method for this project. Performs a series of tests of the DAO classes and shows the results.
+ */
 public class HealthMonitoringApp {
     private static final UserDao userDao = new UserDao();
 
     /**
-     * Class which contains the main() method for this project. Performs a series of tests of the DAO classes and shows the results.
+     * Main method which runs all tests.
      */
-
     public static void main(String[] args) {
         UserDao userDao = new UserDao();
         HealthDataDao healthDataDao = new HealthDataDao();
