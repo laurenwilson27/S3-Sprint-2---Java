@@ -206,7 +206,7 @@ public class MedicineReminderManager {
             LocalDate endDate = LocalDate.parse(reminder.getEndDate(), formatter);
 
             // Compare the start and end date of this minder to the 'now' LocalDate
-            if (!startDate.isBefore(today) && !endDate.isAfter(today)) {
+            if ((startDate.isBefore(today) || startDate.isEqual(today)) && (endDate.isAfter(today) || endDate.isEqual(today))) {
                 // If the current datetime falls between the start and end dates, add this reminder to the due reminders
                 dueReminders.add(reminder);
             }
