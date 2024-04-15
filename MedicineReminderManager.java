@@ -7,21 +7,42 @@ import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
 
+/**
+ * A class which can store multiple MedicineReminders, as well as performing CRUD operations on the database.
+ * The MedicineReminderManager can record new MedicineReminders, retrieve them, update them, and delete them.
+ */
+
 public class MedicineReminderManager {
     private List<MedicineReminder> reminders;
 
+    /**
+     * Constructor for a MedicineReminderManager. Each manager holds its own collection of MedicineReminders.
+     */
     public MedicineReminderManager() {
         this.reminders = new ArrayList<>();
     }
 
+    /**
+     * Appends a MedicineReminder to the manager's collection of reminders.
+     * @param reminder The reminder to add
+     */
     public void addReminder(MedicineReminder reminder) {
         reminders.add(reminder);
     }
 
+    /**
+     * Replaces the manager's list of reminders with a list which is supplied to this method.
+     * @param reminders The new list of reminders
+     */
     public void setReminders(List<MedicineReminder> reminders) {
         this.reminders = reminders;
     }
 
+    /**
+     * Records a MedicineReminder in the database.
+     * @param reminder The MedicineReminder to record
+     * @return True if successful
+     */
     public boolean createReminder(MedicineReminder reminder) {
         try {
             Connection psql = DatabaseConnection.getCon();
@@ -49,6 +70,11 @@ public class MedicineReminderManager {
         } catch (Exception e) {System.out.println(e); return false;}
     }
 
+    /**
+     * Removes a MedicineReminder from the database, based on the reminder's ID
+     * @param id ID of the reminder to remove
+     * @return True if successful.
+     */
     public boolean deleteReminder(int id) {
         try {
             Connection psql = DatabaseConnection.getCon();
@@ -65,6 +91,11 @@ public class MedicineReminderManager {
         } catch (Exception e) {System.out.println(e); return false;}
     }
 
+    /**
+     * Updates a MedicineReminder in the database.
+     * @param reminder The MedicineReminder to base the update on
+     * @return True if successful
+     */
     public boolean updateReminder(MedicineReminder reminder) {
         try {
             Connection psql = DatabaseConnection.getCon();
@@ -88,6 +119,12 @@ public class MedicineReminderManager {
         } catch (Exception e) {System.out.println(e); return false;}
     }
 
+    /**
+     * Retrieves all MedicineReminders for a given user.
+     *
+     * @param userId ID of the user to retrieve all reminders of
+     * @return A list of MedicineReminders belonging to the user
+     */
     public List<MedicineReminder> getRemindersForUser(int userId) {
         List<MedicineReminder> userReminders = new ArrayList<>();
 
@@ -115,8 +152,11 @@ public class MedicineReminderManager {
         return userReminders;
     }
 
-    // Retrieves *all* reminders from the database
-    public List<MedicineReminder> getReminders(int userId) {
+    /**
+     * Retrieves all MedicineReminders in the database.
+     * @return A list of all MedicineReminders.
+     */
+    public List<MedicineReminder> getReminders() {
         List<MedicineReminder> allReminders = new ArrayList<>();
 
         // Write your logic here
@@ -143,6 +183,12 @@ public class MedicineReminderManager {
 
     // It was not explicitly clarified what a 'due' reminder is considered to be.
     // My code will assume that a 'due' reminder is one which is past its start date, but preceding its end date.
+
+    /**
+     * Retrieves a list of all MedicineReminders for a User which are 'due', ie, the current date is between the start and end dates of the reminder
+     * @param userId The ID of the user
+     * @return A list of all 'due' reminders for the user
+     */
     public List<MedicineReminder> getDueReminders(int userId) {
         List<MedicineReminder> dueReminders = new ArrayList<>();
         LocalDate today = LocalDate.now();

@@ -1,8 +1,18 @@
 import org.mindrot.jbcrypt.BCrypt;
 import java.sql.*;
 
+/**
+ * A Data Access Object which interfaces with the Postgres database. It can record Users in the database, as well as retrieving, deleting, and updating them.
+ * Additionally, this DAO is able to authenticate a plaintext password against the password hashes stored in the database.
+ */
+
 public class UserDao {
-   
+
+    /**
+     * Records a new User in the database, and assign's the User's ID.
+     * @param user User to add to the database
+     * @return True if successful.
+     */
     public boolean createUser(User user) {
         // insert user into database 
         String hashedPassword = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
@@ -39,6 +49,11 @@ public class UserDao {
         } catch (Exception e) { System.err.println(e); return false; }
     }
 
+    /**
+     * Retrieves a User from the database based on its ID
+     * @param id ID of the user
+     * @return A User instance matching the database contents
+     */
     public User getUserById(int id) { //get user by id from database 
         try {
             Connection psql = DatabaseConnection.getCon();
@@ -61,6 +76,11 @@ public class UserDao {
         } catch (Exception e) { System.err.println(e); return null; }
     }
 
+    /**
+     * Retrieves a User from the database based on its email address
+     * @param email Email address of the user
+     * @return A User instance matching the database contents
+     */
     public User getUserByEmail(String email) { // get user by email from database 
         try {
             Connection psql = DatabaseConnection.getCon();
@@ -83,6 +103,11 @@ public class UserDao {
         } catch (Exception e) { System.err.println(e); return null; }
     }
 
+    /**
+     * Updates a User in the database.
+     * @param user User to base the update on
+     * @return True if successful
+     */
     // This function will update the database with the values contained in the corresponding User instance
     public boolean updateUser(User user) {
         try {
@@ -110,6 +135,11 @@ public class UserDao {
         } catch (Exception e) { System.err.println(e); return false; }
     }
 
+    /**
+     * Deletes a User from the database.
+     * @param id ID of the User to delete
+     * @return True if successful
+     */
     public boolean deleteUser(int id) { // delete user from the database 
         try {
             Connection psql = DatabaseConnection.getCon();
@@ -131,6 +161,12 @@ public class UserDao {
         } catch (Exception e) { System.err.println(e); return false; }
     }
 
+    /**
+     * Validates a User password based on the record in the database
+     * @param email Email address of the User to validate
+     * @param password Plaintext password to compare against
+     * @return True if the password is valid
+     */
     public boolean verifyPassword (String email, String password)
     {
         try {
@@ -153,7 +189,7 @@ public class UserDao {
                 // Compare the given plaintext password to the hashed one in the database using bcrypt
                 // The result of the comparison is the result of the function
                 return (BCrypt.checkpw(password, hash));
-            } else 
+            }
             return false; // Otherwise, the function has failed
         } catch (Exception e) { System.err.println(e); return false; }
     }

@@ -12,16 +12,9 @@ import org.mindrot.jbcrypt.BCrypt;
 
 public class HealthMonitoringApp {
     private static final UserDao userDao = new UserDao();
+
     /**
-     * Test the following functionalities within the Main Application
-     *  1. Register a new user
-     *  2. Log in the user
-     *  3. Add health data8
-     *  4. Generate recommendations
-     *  5. Add a medicine reminder
-     *  6. Get reminders for a specific user
-     *  7. Get due reminders for a specific user
-     *  8. test doctor portal
+     * Class which contains the main() method for this project. Performs a series of tests of the DAO classes and shows the results.
      */
 
     public static void main(String[] args) {

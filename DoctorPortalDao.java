@@ -6,17 +6,29 @@ import java.util.List;
 import java.util.ArrayList;
 import java.sql.*;
 
+/**
+ * Data access object for CRUD operations involving doctor users, their patient users, and their patients HealthData.
+ */
+
 public class DoctorPortalDao {
     private UserDao userDao;
     private HealthDataDao healthDataDao;
 
    // Complete all these methods and add more as needed
- 
+
+    /**
+     * Constructor for the DoctorPortalDao. Takes no parameters.
+     */
     public DoctorPortalDao() {
         userDao = new UserDao();
         healthDataDao = new HealthDataDao();
     }
 
+    /**
+     * Searches for and returns a new Doctor instance based on the database.
+     * @param doctorId User ID of the Doctor to retrieve.
+     * @return Doctor instance with attributes retrieved from the database
+     */
     // Searches for and returns a new Doctor matching a specific ID in the database
     public Doctor getDoctorById(int doctorId) {
         try {
@@ -40,7 +52,11 @@ public class DoctorPortalDao {
         } catch (Exception e) {System.err.println(e); return null;}
     }
 
-    // Returns a List containing every User which is a patient of the Doctor with the given ID
+    /**
+     * Returns a List containing every User which is a patient of the Doctor with the given ID
+     * @param doctorId
+     * @return List of all Users which are patients of the given doctor.
+     */
     public List<User> getPatientsByDoctorId(int doctorId) {
         try {
             Connection psql = DatabaseConnection.getCon();
@@ -72,9 +88,14 @@ public class DoctorPortalDao {
 
     // Add more methods for other doctor-specific tasks
 
-    // Adds a doctor-patient relationship to the doctor_patient DB table
-    // Returns true if the relationship was added successfully
-    // Note that because doctor_id and patient_id are a compound primary key, the query will fail if the relationship already exists, returning false
+    /**
+     * Adds a doctor-patient relationship to the doctor_patient DB table
+     * Note that because doctor_id and patient_id are a compound primary key in the database, the query will fail if the relationship already exists, returning false
+     *
+     * @param doctorId User ID of the doctor
+     * @param patientId User ID of the patient
+     * @return True if the creation was successful
+     */
     public boolean createDoctorPatientRelationship(int doctorId, int patientId) {
         try {
             Connection psql = DatabaseConnection.getCon();
@@ -94,7 +115,13 @@ public class DoctorPortalDao {
         } catch (Exception e) {System.err.println(e); return false;}
     }
 
-    // Delete a doctor-patient relationship from the doctor_patient DB table
+    /**
+     * Deletes a doctor-patient relationship from the doctor_patient DB table
+     *
+     * @param doctorId User ID of the doctor
+     * @param patientId User ID of the patient
+     * @return True if the deletion was successful
+     */
     public boolean deleteDoctorPatientRelationship(int doctorId, int patientId) {
         try {
             Connection psql = DatabaseConnection.getCon();

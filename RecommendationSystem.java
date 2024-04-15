@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A class containing a static methods which will analyze a HealthData instance and offer suggestions based on the information in the HealthData.
+ */
+
 public class RecommendationSystem {
     private static final int MIN_HEART_RATE = 60;
     private static final int MAX_HEART_RATE = 100;
@@ -9,6 +13,12 @@ public class RecommendationSystem {
     private static final double A1C_DIABETES = 6.5;
 
     // This method is static, so the RecommendationSystem doesn't need to be instantiated
+
+    /**
+     * Generates health recommendations based on the given HealthData
+     * @param healthData The HealthData to analyze
+     * @return A list of all recommendations. Each element in the list is a different recommendation.
+     */
     public static List<String> generateRecommendations(HealthData healthData) {
         List<String> recommendations = new ArrayList<String>();
 

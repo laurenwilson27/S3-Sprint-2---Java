@@ -1,3 +1,7 @@
+/**
+ * A universal user class. All users have a name, email, phone number, and password, as well as a flag for if they are or aren't a doctor.
+ */
+
 public class User {
     private int id;
     private String firstName;
@@ -6,6 +10,15 @@ public class User {
     private String password;
     private boolean isDoctor;
 
+    /**
+     * Basic constructor for a User.
+     * @param id
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param password
+     * @param isDoctor
+     */
     public User(int id, String firstName, String lastName, String email, String password, boolean isDoctor) {
         this.id = id;
         this.firstName = firstName;
@@ -15,6 +28,14 @@ public class User {
         this.isDoctor = isDoctor;
     }
 
+    /**
+     * Alternate constructor which does not take an id. Useful if the User does not yet exist in the database.
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param password
+     * @param isDoctor
+     */
     public User(String firstName, String lastName, String email, String password, boolean isDoctor) {
         this.id = -1;
         this.firstName = firstName;

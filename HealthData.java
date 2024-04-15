@@ -1,3 +1,7 @@
+/**
+ * Class which represents a single recording of a user's health status, including weight, height, step count, heart rate, and hemoglobin A1C.
+ */
+
 public class HealthData {
     private int id;
     private int userId;
@@ -8,7 +12,17 @@ public class HealthData {
     private String date;
     private double a1c;
 
-    // Constructor, getters, and setters
+    /**
+     * Constructor for HealthData
+     * @param id
+     * @param userId
+     * @param weight
+     * @param height
+     * @param steps
+     * @param heartRate
+     * @param date
+     * @param a1c
+     */
     public HealthData(int id, int userId, double weight, double height, int steps, int heartRate, String date, double a1c) {
         this.id = id;
         this.userId = userId;
@@ -20,7 +34,16 @@ public class HealthData {
         this.a1c = a1c;
     }
 
-    // Constructor for data that has not yet been added to the database
+    /**
+     * Alternate constructor which does not take an ID. Useful if the data does not yet exist in the database.
+     * @param userId
+     * @param weight
+     * @param height
+     * @param steps
+     * @param heartRate
+     * @param date
+     * @param a1c
+     */
     public HealthData(int userId, double weight, double height, int steps, int heartRate, String date, double a1c) {
         this.id = -1;
         this.userId = userId;

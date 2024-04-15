@@ -1,4 +1,6 @@
-
+/**
+ * A class for medicine reminders, which include the prescription and the time period during which the prescription should be taken.
+ */
 
 public class MedicineReminder {
     private int id;
@@ -10,6 +12,17 @@ public class MedicineReminder {
     private String endDate;
 
     // Constructor
+
+    /**
+     * Constructor for a MedicineReminder.
+     * @param id
+     * @param userId
+     * @param medicineName
+     * @param dosage
+     * @param schedule
+     * @param startDate
+     * @param endDate
+     */
     public MedicineReminder(int id, int userId, String medicineName, String dosage, String schedule, String startDate, String endDate) {
         this.id = id;
         this.userId = userId;
@@ -20,6 +33,15 @@ public class MedicineReminder {
         this.endDate = endDate;
     }
 
+    /**
+     * Constructor for a MedicineReminder which does not yet have an ID.
+     * @param userId
+     * @param medicineName
+     * @param dosage
+     * @param schedule
+     * @param startDate
+     * @param endDate
+     */
     public MedicineReminder(int userId, String medicineName, String dosage, String schedule, String startDate, String endDate) {
         this.id = -1;
         this.userId = userId;
