@@ -4,45 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ecfd477-23fa-4dbc-b1e9-504eb8cff298" name="Changes" comment="Bug fixes">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/803417d5-0edb-4d1c-bbe7-7104859c40bc/storage_v2/_src_/database/java-sprint.JXh4AQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/803417d5-0edb-4d1c-bbe7-7104859c40bc/storage_v2/_src_/database/java-sprint.JXh4AQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/.idea/dataSources/803417d5-0edb-4d1c-bbe7-7104859c40bc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/.idea/dataSources/803417d5-0edb-4d1c-bbe7-7104859c40bc/storage_v2/_src_/database/java-sprint.JXh4AQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/.idea/dataSources/803417d5-0edb-4d1c-bbe7-7104859c40bc/storage_v2/_src_/database/java-sprint.JXh4AQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/.idea/libraries/lib1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/DatabaseConnection.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/Doctor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/DoctorPortalDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/HealthData.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/HealthDataDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/HealthMonitoringApp.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/MedicineReminder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/MedicineReminderManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/RecommendationSystem.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/S3 Sprint 2 - Java.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/UserDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/lib/jBCrypt-0.4.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/lib/postgresql-42.6.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/script/Users.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/script/doctor_patient.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/script/health_data.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/script/medicine_reminders.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/S3 Sprint 2 - Java/script/recommendations.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HealthMonitoringApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/HealthMonitoringApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backup.sql" beforeDir="false" />
-    </list>
+    <list default="true" id="1ecfd477-23fa-4dbc-b1e9-504eb8cff298" name="Changes" comment="Bug fixes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,7 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1713127720794</updated>
       <workItem from="1713127721796" duration="2960000" />
-      <workItem from="1713130696771" duration="7904000" />
+      <workItem from="1713130696771" duration="8516000" />
     </task>
     <task id="LOCAL-00001" summary="IDE directory reset, significant changes to date handling">
       <option name="closed" value="true" />
